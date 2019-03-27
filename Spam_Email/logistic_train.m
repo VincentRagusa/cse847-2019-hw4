@@ -15,7 +15,7 @@ function [weights] = logistic_train(data, labels, epsilon, maxiter)
     while (iteration < maxiter && norm(w - w_old) > epsilon)
         
         for i = 1:data_points
-            y(i) = 1 / (1 + exp(-dot(w, data(i,:))) ); %extra transpose on data needed to match dimensions! what the $&#* does this do mathematically??? 
+            y(i) = 1 / (1 + exp(-dot(w, data(i,:))) ); % w^T phi_n replaced with dot(w, phi_n)
             R(i,i) = y(i)*(1-y(i));
         end
         
